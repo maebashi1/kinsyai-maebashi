@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お品書き | 酒食箱 来んしゃい</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="menu-page">
+
+    <header>
+        <div class="header-inner">
+            <h1 class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">酒食箱 <span>来んしゃい</span></a></h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">お品書き</h2>
+        
+        <div id="menu-page-container">
+            <p style="text-align: center; font-family: 'Noto Serif JP', serif;">お品書きを読み込み中...</p>
+        </div>
+
+        <div class="btn-wrap" style="margin-top:60px; text-align: center;">
+            <a href="index.html" class="btn-primary">トップページへ戻る</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 酒食箱 来んしゃい（群馬県前橋市千代田町）. All Rights Reserved.</p>
+    </footer>
+
+    <nav class="mobile-fixed-nav">
+        <a href="tel:0272261139">📞 電話予約</a>
+        <a href="index.html#access">📍 アクセス</a>
+        <a href="https://www.instagram.com/kin2261139" target="_blank">📷 Instagram</a>
+    </nav>
+
+    <script>
+        // 【要設定】microCMSの情報を正しく入力してください
+       const serviceDomain = "kinsyai"; 
+        const apiKey = "b4La0105jfHNU8QNfW6dIzBg3NMpnJXRcxWa";      
+
+        // メニューを表示させたい本物通りの並び順リスト
+        const categoryOrder = [
+            "焼き鳥・野菜焼き・串焼き",
+            "売り切れ必死の限定串焼き",
+            "博多名物 野菜巻き串",
+            "揚げもの",
+            "炙り肴・焼き肴",
+            "あっさり 即肴 さっぱり",
+            "おすすめの一品",
+            "ごはん・しめの汁・麺"
+        ];
+
+        // 58品すべてを一度に取得するため limit=100 にしています
+        fetch(`https://${serviceDomain}.microcms.io/api/v1/menu?limit=100`, {
+            headers: { "X-MICROCMS-API-KEY": apiKey }
+        })
+        .then(res => {
+            if (!res.ok) {
+                throw new Error(`API接続エラー: ステータス ${res.status}`);
+            }
+            return res.json();
+        })
+        .then(data => {
+            const container = document.getElementById('menu-page-container');
+            container.innerHTML = ''; 
+
+            if (!data.contents || data.contents.length === 0) {
+                container.innerHTML = '<p style="text-align: center;">登録されているメニューがありません。</p>';
+                return;
+            }
+
+            // カテゴリごとにデータを仕分け（大文字小文字やスペースのブレ防止対応）
+            const categories = {};
+            data.contents.forEach(item => {
+                let catName = "";
+                
+                // セレクトフィールドの形式に合わせてカテゴリ名を取り出す
+                if (item.category) {
+                    if (Array.isArray(item.category)) {
+                        catName = item.category[0];
+                    } else if (typeof item.category === 'object') {
+                        catName = item.category.name || item.category.id;
+                    } else {
+                        catName = item.category;
+                    }
+                }
+                
+                catName = catName ? catName.trim() : "その他";
+
+                if (!categories[catName]) {
+                    categories[catName] = [];
+                }
+                categories[catName].push(item);
+            });
+
+            // 正しいカテゴリ順（categoryOrder）の通りにループして画面に出力
+            categoryOrder.forEach(catName => {
+                if (categories[catName] && categories[catName].length > 0) {
+                    const catSection = document.createElement('div');
+                    catSection.className = 'menu-category-block';
+                    
+                    let itemsHtml = '';
+                    categories[catName].forEach(item => {
+                        // フィールドIDが「name/title」「price/kakaku」どちらでも動くようにセーフティを設定
+                        const displayName = item.name || item.title || "名称未設定";
+                        const displayPrice = item.price || item.kakaku || "価格未設定";
+                        const imageUrl = item.image ? item.image.url : '';
+                        
+                        itemsHtml += `
+                            <div class="menu-item-card">
+                                ${imageUrl ? `<div class="menu-img-box"><img src="${imageUrl}" alt="${displayName}"></div>` : ''}
+                                <div class="menu-item-meta">
+                                    <span class="item-name">${displayName}</span>
+                                    <span class="item-price">${displayPrice}</span>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    catSection.innerHTML = `
+                        <h3 class="menu-category-title">${catName}</h3>
+                        <div class="menu-items-grid">${itemsHtml}</div>
+                    `;
+                    container.appendChild(catSection);
+                }
+            });
+        })
+        .catch(err => {
+            console.error("エラー詳細:", err);
+            document.getElementById('menu-page-container').innerHTML = `
+                <p style="text-align: center; color: #d9534f;">お品書きの読み込みに失敗しました。</p>
+                <p style="text-align: center; font-size: 12px; color: gray;">原因: ${err.message}</p>
+            `;
+        });
+    </script>
+</body>
+</html>
