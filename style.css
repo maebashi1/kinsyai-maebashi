@@ -264,11 +264,14 @@ body {
     background: var(--color-gold);
     color: var(--color-bg);
     text-decoration: none;
-    padding: 14px 32px;
+    padding: 14px 0;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 1px;
     transition: background 0.2s;
+    min-width: 180px;
+    text-align: center;
+    display: inline-block;
 }
 
 .btn-hero-primary:hover {
@@ -279,11 +282,14 @@ body {
     background: transparent;
     color: #fff;
     text-decoration: none;
-    padding: 13px 32px;
+    padding: 14px 0;
     font-size: 14px;
     letter-spacing: 1px;
     border: 1px solid rgba(255,255,255,0.6);
     transition: all 0.2s;
+    min-width: 180px;
+    text-align: center;
+    display: inline-block;
 }
 
 .btn-hero-secondary:hover {
@@ -1100,10 +1106,11 @@ body {
 
     .btn-hero-primary,
     .btn-hero-secondary {
+        min-width: 0;
         width: 100%;
         max-width: 260px;
         text-align: center;
-        padding: 12px 20px;
+        padding: 13px 20px;
         font-size: 13px;
     }
 
