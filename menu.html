@@ -3,47 +3,547 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お品書き | 酒食箱 来んしゃい</title>
+    <title>お品書き | 酒食箱 来んしゃい｜前橋の居酒屋</title>
+    <meta name="description" content="酒食箱 来んしゃいのお品書き。焼き鳥・串焼き・野菜巻き串・揚げもの・一品料理など、こだわりの料理をご用意しております。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body class="menu-page">
+    <style>
+        /* ─────────────────────────────────────────
+           メニューページ専用スタイル（拡張版）
+           ───────────────────────────────────────── */
 
-    <header>
-        <div class="header-inner">
-            <h1 class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">酒食箱 <span>来んしゃい</span></a></h1>
+        /* ヘッダー */
+        .mp-header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            z-index: 200;
+            background: rgba(10, 9, 7, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .mp-header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .mp-logo {
+            font-family: var(--font-serif);
+            font-size: 17px;
+            letter-spacing: 3px;
+            color: var(--color-gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .mp-logo::before {
+            content: '◆';
+            font-size: 9px;
+            opacity: 0.6;
+        }
+        .mp-back-btn {
+            font-family: var(--font-serif);
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            border: 1px solid var(--color-border);
+            padding: 8px 18px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .mp-back-btn:hover {
+            color: var(--color-gold);
+            border-color: var(--color-gold);
+        }
+
+        /* ヒーロー帯 */
+        .mp-hero {
+            padding-top: 68px;
+            background: var(--color-bg);
+            position: relative;
+            overflow: hidden;
+        }
+        .mp-hero-inner {
+            padding: 70px 24px 60px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .mp-hero-kana {
+            font-size: 11px;
+            letter-spacing: 6px;
+            color: var(--color-gold);
+            opacity: 0.8;
+            margin-bottom: 18px;
+            display: block;
+        }
+        .mp-hero-title {
+            font-size: clamp(36px, 6vw, 56px);
+            letter-spacing: 12px;
+            color: var(--color-text);
+            font-weight: 500;
+            margin-bottom: 24px;
+            line-height: 1;
+        }
+        .mp-hero-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .mp-hero-ornament::before,
+        .mp-hero-ornament::after {
+            content: '';
+            flex: 1;
+            max-width: 100px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--color-gold));
+        }
+        .mp-hero-ornament::after {
+            background: linear-gradient(to left, transparent, var(--color-gold));
+        }
+        .mp-hero-ornament span {
+            font-size: 14px;
+            color: var(--color-gold);
+            opacity: 0.7;
+        }
+        .mp-hero-sub {
+            font-size: 12px;
+            color: var(--color-text-muted);
+            letter-spacing: 3px;
+        }
+        /* 背景装飾 */
+        .mp-hero::after {
+            content: '品';
+            position: absolute;
+            font-size: 320px;
+            color: var(--color-gold);
+            opacity: 0.025;
+            font-family: var(--font-serif);
+            right: -40px;
+            top: -40px;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        /* カテゴリ固定タブ */
+        .mp-cat-nav {
+            position: sticky;
+            top: 68px;
+            z-index: 150;
+            background: rgba(17, 16, 9, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .mp-cat-nav::-webkit-scrollbar { display: none; }
+        .mp-cat-nav-list {
+            display: flex;
+            white-space: nowrap;
+            padding: 0 16px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .mp-cat-tab {
+            display: inline-block;
+            padding: 16px 20px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: var(--color-text-muted);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+            white-space: nowrap;
+            text-decoration: none;
+            font-family: var(--font-serif);
+        }
+        .mp-cat-tab:hover,
+        .mp-cat-tab.active {
+            color: var(--color-gold);
+            border-bottom-color: var(--color-gold);
+        }
+
+        /* メインコンテンツ */
+        .mp-body {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px 120px;
+        }
+
+        /* カテゴリブロック */
+        .mp-cat-section {
+            padding-top: 70px;
+        }
+
+        .mp-cat-heading {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 32px;
+            padding-bottom: 0;
+        }
+        .mp-cat-heading-accent {
+            width: 4px;
+            height: 48px;
+            background: linear-gradient(to bottom, var(--color-red), var(--color-gold));
+            flex-shrink: 0;
+            margin-right: 20px;
+        }
+        .mp-cat-heading-text {
+            flex: 1;
+        }
+        .mp-cat-heading-en {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: var(--color-gold);
+            opacity: 0.7;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+        .mp-cat-heading-ja {
+            font-size: clamp(17px, 3vw, 22px);
+            letter-spacing: 2px;
+            color: var(--color-text);
+            font-weight: 500;
+            line-height: 1.3;
+        }
+        .mp-cat-heading-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--color-border), transparent);
+            margin-left: 24px;
+        }
+
+        /* アイテム一覧（画像なし）*/
+        .mp-items-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-top: 1px solid var(--color-border);
+            border-left: 1px solid var(--color-border);
+        }
+        .mp-item-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--color-border);
+            border-right: 1px solid var(--color-border);
+            transition: background 0.2s;
+            position: relative;
+        }
+        .mp-item-row::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: var(--color-gold);
+            opacity: 0;
+            transition: width 0.25s, opacity 0.25s;
+        }
+        .mp-item-row:hover::before {
+            width: 2px;
+            opacity: 0.5;
+        }
+        .mp-item-row:hover {
+            background: rgba(201, 168, 76, 0.04);
+        }
+        .mp-item-name {
+            font-size: 14px;
+            color: var(--color-text);
+            letter-spacing: 0.5px;
+            line-height: 1.5;
+            flex: 1;
+        }
+        .mp-item-dot {
+            flex: 1;
+            height: 1px;
+            border-bottom: 1px dotted rgba(201, 168, 76, 0.2);
+            margin: 0 10px;
+            min-width: 16px;
+            max-width: 40px;
+        }
+        .mp-item-price {
+            font-size: 15px;
+            color: var(--color-gold);
+            font-weight: 600;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+        }
+
+        /* アイテム一覧（画像あり）*/
+        .mp-items-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .mp-item-card {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+            transition: transform 0.25s, border-color 0.25s;
+            position: relative;
+        }
+        .mp-item-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(201, 168, 76, 0.4);
+        }
+        .mp-item-card-img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+        .mp-item-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .mp-item-card:hover .mp-item-card-img img {
+            transform: scale(1.05);
+        }
+        .mp-item-card-body {
+            padding: 14px 16px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 8px;
+        }
+        .mp-item-card-name {
+            font-size: 14px;
+            color: var(--color-text);
+            letter-spacing: 0.5px;
+            line-height: 1.5;
+        }
+        .mp-item-card-price {
+            font-size: 15px;
+            color: var(--color-gold);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* ローディング */
+        .mp-loading {
+            padding: 80px 24px;
+            text-align: center;
+        }
+        .mp-loading-icon {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--color-border);
+            border-top-color: var(--color-gold);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .mp-loading-text {
+            font-size: 13px;
+            letter-spacing: 3px;
+            color: var(--color-text-muted);
+        }
+
+        /* エラー */
+        .mp-error {
+            padding: 60px 24px;
+            text-align: center;
+        }
+        .mp-error-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+        .mp-error-msg {
+            font-size: 14px;
+            color: var(--color-red);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .mp-error-detail {
+            font-size: 11px;
+            color: var(--color-text-muted);
+        }
+
+        /* フッター帯 */
+        .mp-footer-band {
+            background: var(--color-bg-section);
+            border-top: 1px solid var(--color-border);
+            padding: 48px 24px;
+            text-align: center;
+        }
+        .mp-footer-band p {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: var(--color-text-muted);
+            margin-bottom: 20px;
+        }
+        .mp-footer-back {
+            display: inline-block;
+            padding: 14px 40px;
+            border: 1px solid var(--color-gold);
+            color: var(--color-gold);
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 3px;
+            transition: background 0.2s, color 0.2s;
+            font-family: var(--font-serif);
+        }
+        .mp-footer-back:hover {
+            background: var(--color-gold);
+            color: #111009;
+        }
+
+        /* フッター */
+        .mp-site-footer {
+            background: #0c0b08;
+            border-top: 1px solid var(--color-border);
+            padding: 24px;
+            text-align: center;
+        }
+        .mp-site-footer p {
+            font-size: 11px;
+            color: var(--color-text-muted);
+            letter-spacing: 1px;
+        }
+
+        /* 区切り線 */
+        .mp-section-divider {
+            margin: 0 0 0;
+            border: none;
+            border-top: 1px solid var(--color-border);
+        }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            .mp-items-list {
+                grid-template-columns: 1fr;
+            }
+            .mp-item-row {
+                padding: 15px 16px;
+            }
+            .mp-items-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .mp-cat-tab {
+                padding: 14px 14px;
+                font-size: 11px;
+            }
+            .mp-hero-title {
+                letter-spacing: 8px;
+            }
+        }
+        @media (max-width: 480px) {
+            .mp-items-cards {
+                grid-template-columns: 1fr;
+            }
+            .mp-hero-inner {
+                padding: 50px 16px 40px;
+            }
+        }
+
+        /* スクロールアニメーション */
+        .mp-cat-section {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .mp-cat-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body style="background: var(--color-bg); padding-bottom: 80px;">
+
+    <!-- ヘッダー -->
+    <header class="mp-header">
+        <div class="mp-header-inner">
+            <a href="index.html" class="mp-logo">酒食箱 来んしゃい</a>
+            <a href="index.html" class="mp-back-btn">← トップへ</a>
         </div>
     </header>
 
-    <main class="container">
-        <h2 class="section-title">お品書き</h2>
-        
-        <div id="menu-page-container">
-            <p style="text-align: center; font-family: 'Noto Serif JP', serif;">お品書きを読み込み中...</p>
+    <!-- ヒーロー -->
+    <section class="mp-hero">
+        <div class="mp-hero-inner">
+            <span class="mp-hero-kana">お し な が き</span>
+            <h1 class="mp-hero-title">お品書き</h1>
+            <div class="mp-hero-ornament">
+                <span>◆</span>
+            </div>
+            <p class="mp-hero-sub">FOOD &amp; DRINK MENU</p>
         </div>
+    </section>
 
-        <div class="btn-wrap" style="margin-top:60px; text-align: center;">
-            <a href="index.html" class="btn-primary">トップページへ戻る</a>
+    <!-- カテゴリタブ（JS で生成） -->
+    <nav class="mp-cat-nav" id="mp-cat-nav">
+        <div class="mp-cat-nav-list" id="mp-cat-nav-list">
+            <!-- JS で挿入 -->
+        </div>
+    </nav>
+
+    <!-- メニュー本体 -->
+    <main class="mp-body" id="mp-body">
+        <div class="mp-loading" id="mp-loading">
+            <div class="mp-loading-icon"></div>
+            <p class="mp-loading-text">お品書きを読み込み中</p>
         </div>
     </main>
 
-    <footer>
+    <!-- フッター帯 -->
+    <div class="mp-footer-band">
+        <p>価格はすべて税込表記です</p>
+        <a href="index.html" class="mp-footer-back">トップページへ戻る</a>
+    </div>
+
+    <!-- フッター -->
+    <footer class="mp-site-footer">
         <p>© 2026 酒食箱 来んしゃい（群馬県前橋市千代田町）. All Rights Reserved.</p>
     </footer>
 
+    <!-- スマホ固定ナビ -->
     <nav class="mobile-fixed-nav">
         <a href="tel:0272261139">📞 電話予約</a>
         <a href="index.html#access">📍 アクセス</a>
         <a href="https://www.instagram.com/kin2261139" target="_blank">📷 Instagram</a>
     </nav>
 
-    <script>
-        // 【要設定】microCMSの情報を正しく入力してください
-       const serviceDomain = "kinsyai"; 
-        const apiKey = "b4La0105jfHNU8QNfW6dIzBg3NMpnJXRcxWa";      
+    <!-- スタッフ募集フローティングバッジ -->
+    <a href="index.html#recruit" class="recruit-float">
+        <span class="recruit-float-icon">🔥</span>
+        <span class="recruit-float-main">スタッフ<br>募集中</span>
+        <span class="recruit-float-sub">時給1,070円〜</span>
+    </a>
 
-        // メニューを表示させたい本物通りの並び順リスト
-        const categoryOrder = [
+    <script>
+        const SERVICE_DOMAIN = "kinsyai";
+        const API_KEY = "b4La0105jfHNU8QNfW6dIzBg3NMpnJXRcxWa";
+
+        // カテゴリ英語名（タブ表示用）
+        const CAT_EN = {
+            "焼き鳥・野菜焼き・串焼き":     "YAKITORI",
+            "売り切れ必死の限定串焼き":       "LIMITED",
+            "博多名物 野菜巻き串":            "YASAI MAKI",
+            "揚げもの":                       "AGEMONO",
+            "炙り肴・焼き肴":                 "ABURI",
+            "あっさり 即肴 さっぱり":         "REFRESHING",
+            "おすすめの一品":                 "RECOMMEND",
+            "ごはん・しめの汁・麺":           "SHIME",
+        };
+
+        const CATEGORY_ORDER = [
             "焼き鳥・野菜焼き・串焼き",
             "売り切れ必死の限定串焼き",
             "博多名物 野菜巻き串",
@@ -51,90 +551,164 @@
             "炙り肴・焼き肴",
             "あっさり 即肴 さっぱり",
             "おすすめの一品",
-            "ごはん・しめの汁・麺"
+            "ごはん・しめの汁・麺",
         ];
 
-        // 58品すべてを一度に取得するため limit=100 にしています
-        fetch(`https://${serviceDomain}.microcms.io/api/v1/menu?limit=100`, {
-            headers: { "X-MICROCMS-API-KEY": apiKey }
+        // カテゴリ ID（アンカー用）
+        function catId(name) {
+            return 'cat-' + CATEGORY_ORDER.indexOf(name);
+        }
+
+        fetch(`https://${SERVICE_DOMAIN}.microcms.io/api/v1/menu?limit=100`, {
+            headers: { "X-MICROCMS-API-KEY": API_KEY }
         })
         .then(res => {
-            if (!res.ok) {
-                throw new Error(`API接続エラー: ステータス ${res.status}`);
-            }
+            if (!res.ok) throw new Error(`ステータス ${res.status}`);
             return res.json();
         })
         .then(data => {
-            const container = document.getElementById('menu-page-container');
-            container.innerHTML = ''; 
+            const body = document.getElementById('mp-body');
+            const navList = document.getElementById('mp-cat-nav-list');
+            body.innerHTML = '';
 
             if (!data.contents || data.contents.length === 0) {
-                container.innerHTML = '<p style="text-align: center;">登録されているメニューがありません。</p>';
+                body.innerHTML = '<p style="text-align:center;padding:80px 0;color:var(--color-text-muted);">メニューがありません</p>';
                 return;
             }
 
-            // カテゴリごとにデータを仕分け（大文字小文字やスペースのブレ防止対応）
+            // カテゴリ仕分け
             const categories = {};
             data.contents.forEach(item => {
-                let catName = "";
-                
-                // セレクトフィールドの形式に合わせてカテゴリ名を取り出す
+                let cat = '';
                 if (item.category) {
-                    if (Array.isArray(item.category)) {
-                        catName = item.category[0];
-                    } else if (typeof item.category === 'object') {
-                        catName = item.category.name || item.category.id;
-                    } else {
-                        catName = item.category;
-                    }
+                    if (Array.isArray(item.category))       cat = item.category[0];
+                    else if (typeof item.category === 'object') cat = item.category.name || item.category.id;
+                    else cat = item.category;
                 }
-                
-                catName = catName ? catName.trim() : "その他";
-
-                if (!categories[catName]) {
-                    categories[catName] = [];
-                }
-                categories[catName].push(item);
+                cat = (cat || 'その他').trim();
+                if (!categories[cat]) categories[cat] = [];
+                categories[cat].push(item);
             });
 
-            // 正しいカテゴリ順（categoryOrder）の通りにループして画面に出力
-            categoryOrder.forEach(catName => {
-                if (categories[catName] && categories[catName].length > 0) {
-                    const catSection = document.createElement('div');
-                    catSection.className = 'menu-category-block';
-                    
-                    let itemsHtml = '';
-                    categories[catName].forEach(item => {
-                        // フィールドIDが「name/title」「price/kakaku」どちらでも動くようにセーフティを設定
-                        const displayName = item.name || item.title || "名称未設定";
-                        const displayPrice = item.price || item.kakaku || "価格未設定";
-                        const imageUrl = item.image ? item.image.url : '';
-                        
-                        itemsHtml += `
-                            <div class="menu-item-card">
-                                ${imageUrl ? `<div class="menu-img-box"><img src="${imageUrl}" alt="${displayName}"></div>` : ''}
-                                <div class="menu-item-meta">
-                                    <span class="item-name">${displayName}</span>
-                                    <span class="item-price">${displayPrice}</span>
+            // タブ生成
+            CATEGORY_ORDER.forEach((cat, i) => {
+                if (!categories[cat]) return;
+                const tab = document.createElement('a');
+                tab.className = 'mp-cat-tab';
+                tab.href = '#' + catId(cat);
+                tab.textContent = cat;
+                tab.dataset.index = i;
+                navList.appendChild(tab);
+            });
+
+            // セクション生成
+            CATEGORY_ORDER.forEach(cat => {
+                if (!categories[cat] || !categories[cat].length) return;
+
+                const items = categories[cat];
+                const hasImages = items.some(it => it.image && it.image.url);
+                const enLabel = CAT_EN[cat] || '';
+                const id = catId(cat);
+
+                const section = document.createElement('section');
+                section.className = 'mp-cat-section';
+                section.id = id;
+
+                // 見出し
+                let html = `
+                    <div class="mp-cat-heading">
+                        <div class="mp-cat-heading-accent"></div>
+                        <div class="mp-cat-heading-text">
+                            ${enLabel ? `<span class="mp-cat-heading-en">${enLabel}</span>` : ''}
+                            <span class="mp-cat-heading-ja">${cat}</span>
+                        </div>
+                        <div class="mp-cat-heading-line"></div>
+                    </div>
+                `;
+
+                if (hasImages) {
+                    // カード型
+                    html += '<div class="mp-items-cards">';
+                    items.forEach(item => {
+                        const name  = item.name  || item.title  || '—';
+                        const price = item.price || item.kakaku || '—';
+                        const imgUrl = item.image ? item.image.url : '';
+                        html += `
+                            <div class="mp-item-card">
+                                ${imgUrl ? `<div class="mp-item-card-img"><img src="${imgUrl}" alt="${name}" loading="lazy"></div>` : ''}
+                                <div class="mp-item-card-body">
+                                    <span class="mp-item-card-name">${name}</span>
+                                    <span class="mp-item-card-price">${price}</span>
                                 </div>
-                            </div>
-                        `;
+                            </div>`;
                     });
-
-                    catSection.innerHTML = `
-                        <h3 class="menu-category-title">${catName}</h3>
-                        <div class="menu-items-grid">${itemsHtml}</div>
-                    `;
-                    container.appendChild(catSection);
+                    html += '</div>';
+                } else {
+                    // リスト型
+                    html += '<div class="mp-items-list">';
+                    items.forEach(item => {
+                        const name  = item.name  || item.title  || '—';
+                        const price = item.price || item.kakaku || '—';
+                        html += `
+                            <div class="mp-item-row">
+                                <span class="mp-item-name">${name}</span>
+                                <span class="mp-item-dot"></span>
+                                <span class="mp-item-price">${price}</span>
+                            </div>`;
+                    });
+                    html += '</div>';
                 }
+
+                section.innerHTML = html;
+                body.appendChild(section);
+
+                // 区切り
+                const hr = document.createElement('hr');
+                hr.className = 'mp-section-divider';
+                hr.style.marginTop = '60px';
+                body.appendChild(hr);
             });
+
+            // IntersectionObserver でフェードイン
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+            }, { threshold: 0.05 });
+            document.querySelectorAll('.mp-cat-section').forEach(el => observer.observe(el));
+
+            // タブのアクティブ制御
+            const tabs = document.querySelectorAll('.mp-cat-tab');
+            const sections = document.querySelectorAll('.mp-cat-section');
+            const navHeight = document.getElementById('mp-cat-nav').offsetHeight + 68;
+
+            const activateTab = () => {
+                let current = 0;
+                sections.forEach((sec, i) => {
+                    if (sec.getBoundingClientRect().top <= navHeight + 10) current = i;
+                });
+                tabs.forEach((tab, i) => {
+                    tab.classList.toggle('active', i === current);
+                });
+                // アクティブタブをスクロール表示
+                const activeTab = tabs[current];
+                if (activeTab) {
+                    const nav = document.getElementById('mp-cat-nav-list');
+                    const tabLeft = activeTab.offsetLeft;
+                    const tabWidth = activeTab.offsetWidth;
+                    const navWidth = nav.offsetWidth;
+                    nav.scrollTo({ left: tabLeft - navWidth / 2 + tabWidth / 2, behavior: 'smooth' });
+                }
+            };
+            window.addEventListener('scroll', activateTab, { passive: true });
+            activateTab();
         })
         .catch(err => {
-            console.error("エラー詳細:", err);
-            document.getElementById('menu-page-container').innerHTML = `
-                <p style="text-align: center; color: #d9534f;">お品書きの読み込みに失敗しました。</p>
-                <p style="text-align: center; font-size: 12px; color: gray;">原因: ${err.message}</p>
-            `;
+            console.error(err);
+            document.getElementById('mp-body').innerHTML = `
+                <div class="mp-error">
+                    <div class="mp-error-icon">⚠</div>
+                    <p class="mp-error-msg">お品書きの読み込みに失敗しました</p>
+                    <p class="mp-error-detail">${err.message}</p>
+                </div>`;
         });
     </script>
 </body>
