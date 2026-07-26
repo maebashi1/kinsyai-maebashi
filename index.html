@@ -9,8 +9,16 @@
     <meta name="description" content="群馬県前橋市千代田町の大衆居酒屋「酒食箱 来んしゃい」。気軽に来てワイワイ飲める、前橋の庶民派居酒屋。朝6時まで営業・全席喫煙可。焼き鳥・串焼きから手料理まで。中央前橋駅徒歩圏内。2軒目・3軒目にも最適。">
     <meta name="keywords" content="前橋 居酒屋,前橋 深夜営業,前橋 喫煙可,群馬 居酒屋,千代田町 居酒屋,来んしゃい,酒食箱,前橋 日本酒,前橋 2軒目,中央前橋 居酒屋">
     <meta name="author" content="酒食箱 来んしゃい">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#0a0907">
+    <meta name="geo.region" content="JP-10">
+    <meta name="geo.placename" content="群馬県前橋市千代田町">
+    <meta name="geo.position" content="36.390824;139.070076">
+    <meta name="ICBM" content="36.390824, 139.070076">
     <link rel="canonical" href="https://maebashi1.github.io/kinsyai-maebashi/">
+    <link rel="icon" href="images/kinsyai-logo.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="images/kinsyai-logo.jpg">
 
     <!-- ========== OGP（SNSシェア・Googleサイト名） ========== -->
     <meta property="og:site_name" content="酒食箱 来んしゃい">
@@ -35,19 +43,40 @@
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": "https://maebashi1.github.io/kinsyai-maebashi/#website",
         "name": "酒食箱 来んしゃい",
-        "url": "https://maebashi1.github.io/kinsyai-maebashi/"
+        "alternateName": "来んしゃい 前橋",
+        "url": "https://maebashi1.github.io/kinsyai-maebashi/",
+        "inLanguage": "ja",
+        "publisher": { "@id": "https://maebashi1.github.io/kinsyai-maebashi/#restaurant" }
       },
       {
         "@context": "https://schema.org",
-        "@type": "BarOrPub",
+        "@type": ["Restaurant", "BarOrPub"],
+        "@id": "https://maebashi1.github.io/kinsyai-maebashi/#restaurant",
         "name": "酒食箱 来んしゃい",
-        "alternateName": "来んしゃい",
-        "description": "群馬県前橋市千代田町の大衆居酒屋。気軽に来てワイワイ飲める前橋の庶民派居酒屋。朝6時まで営業、全席喫煙可。",
+        "alternateName": ["来んしゃい", "しゅしょくばこ きんしゃい"],
+        "description": "群馬県前橋市千代田町の大衆居酒屋「酒食箱 来んしゃい」。18時から翌朝6時まで営業、全席喫煙可（加熱式・紙タバコOK）。焼き鳥・串焼き・上州和牛の炙りとろろユッケ・名古屋発祥台湾まぜそばなど。中央前橋駅から徒歩圏内で、前橋の2軒目・3軒目にも最適です。",
         "url": "https://maebashi1.github.io/kinsyai-maebashi/",
-        "image": "https://maebashi1.github.io/kinsyai-maebashi/images/hero1.jpg",
+        "image": [
+          "https://maebashi1.github.io/kinsyai-maebashi/images/hero1.jpg",
+          "https://maebashi1.github.io/kinsyai-maebashi/images/hero2.jpg",
+          "https://maebashi1.github.io/kinsyai-maebashi/images/hero4.jpg"
+        ],
+        "logo": "https://maebashi1.github.io/kinsyai-maebashi/images/kinsyai-logo.jpg",
         "telephone": "+81-27-226-1139",
         "priceRange": "¥2,000〜¥4,000",
+        "currenciesAccepted": "JPY",
+        "paymentAccepted": "現金, クレジットカード",
+        "smokingAllowed": true,
+        "publicAccess": true,
+        "acceptsReservations": "https://maebashi1.github.io/kinsyai-maebashi/party.html",
+        "hasMenu": "https://maebashi1.github.io/kinsyai-maebashi/menu.html",
+        "servesCuisine": ["居酒屋", "日本料理", "和食", "焼き鳥", "串焼き"],
+        "keywords": "前橋 居酒屋, 前橋 深夜営業, 前橋 喫煙可, 中央前橋駅 居酒屋, 前橋 2軒目, 前橋 焼き鳥",
+        "sameAs": [
+          "https://www.instagram.com/kin2261139"
+        ],
         "address": {
           "@type": "PostalAddress",
           "postalCode": "371-0022",
@@ -61,6 +90,11 @@
           "latitude": 36.390824,
           "longitude": 139.070076
         },
+        "areaServed": [
+          { "@type": "City", "name": "前橋市" },
+          { "@type": "City", "name": "高崎市" },
+          { "@type": "AdministrativeArea", "name": "群馬県" }
+        ],
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
@@ -69,11 +103,51 @@
             "closes": "06:00"
           }
         ],
-        "servesCuisine": ["日本料理", "居酒屋", "和食"],
-        "currenciesAccepted": "JPY",
-        "paymentAccepted": "現金, クレジットカード",
-        "smokingAllowed": true,
-        "hasMap": "https://maps.google.com/maps?q=群馬県前橋市千代田町5-6-8"
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "全席喫煙可", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "深夜営業（翌朝6時まで）", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "カウンター席", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "団体利用可", "value": true }
+        ],
+        "hasMap": "https://maps.google.com/maps?q=群馬県前橋市千代田町5丁目6-8"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "JobPosting",
+        "title": "居酒屋ホールスタッフ・キッチンスタッフ（アルバイト）",
+        "description": "群馬県前橋市千代田町の居酒屋「酒食箱 来んしゃい」でホール・キッチンスタッフを募集しています。未経験OK、Wワーク可、フリーター歓迎。髪色・ネイル自由。深夜手当あり。",
+        "datePosted": "2026-07-26",
+        "validThrough": "2027-07-26",
+        "employmentType": ["PART_TIME"],
+        "hiringOrganization": {
+          "@type": "Organization",
+          "name": "酒食箱 来んしゃい",
+          "sameAs": "https://maebashi1.github.io/kinsyai-maebashi/",
+          "logo": "https://maebashi1.github.io/kinsyai-maebashi/images/kinsyai-logo.jpg"
+        },
+        "jobLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "postalCode": "371-0022",
+            "addressCountry": "JP",
+            "addressRegion": "群馬県",
+            "addressLocality": "前橋市",
+            "streetAddress": "千代田町5丁目6-8"
+          }
+        },
+        "baseSalary": {
+          "@type": "MonetaryAmount",
+          "currency": "JPY",
+          "value": {
+            "@type": "QuantitativeValue",
+            "minValue": 1070,
+            "maxValue": 1337,
+            "unitText": "HOUR"
+          }
+        },
+        "workHours": "18:00〜翌6:00（シフト制）",
+        "directApply": true
       }
     ]
     </script>
@@ -91,16 +165,17 @@
             <div class="header-inner">
                 <div class="header-logo">
                     <a href="index.html">
-                        <img src="images/kinsyai-logo.jpg" alt="酒食箱 来んしゃい" class="site-logo-img">
+                        <img src="images/kinsyai-logo.jpg" alt="前橋の居酒屋 酒食箱 来んしゃい ロゴ" class="site-logo-img" width="160" height="48" fetchpriority="high">
                     </a>
                 </div>
 
-                <nav class="header-nav">
+                <nav class="header-nav" aria-label="メインメニュー">
                     <a href="#concept">こだわり</a>
                     <a href="#dish">料理</a>
-                    <a href="#menu">お品書き</a>
-                    <a href="#pairing">煙草と酒</a>
-                    <a href="#access">店舗情報</a>
+                    <a href="menu.html">お品書き</a>
+                    <a href="party.html">宴会・コース</a>
+                    <a href="faq.html">よくある質問</a>
+                    <a href="access.html">アクセス</a>
                 </nav>
 
                 <div class="header-reserve">
@@ -123,6 +198,8 @@
                 <a href="#gacha">おつまみガチャ</a>
                 <a href="#recruit">スタッフ募集</a>
                 <a href="#access">アクセス</a>
+                <a href="party.html">宴会・コース</a>
+                <a href="faq.html">よくある質問</a>
             </nav>
         </div>
     </header>
@@ -135,8 +212,8 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <p class="hero-sub">群馬県前橋市千代田町 ― 朝6時まで営業</p>
-            <h2 class="hero-title">気軽に来て、<br>うまい酒とうまい飯。</h2>
-            <p class="hero-desc">中央前橋駅から徒歩圏内。全席喫煙可の大衆居酒屋。</p>
+            <h1 class="hero-title">気軽に来て、<br>うまい酒とうまい飯。</h1>
+            <p class="hero-desc">前橋の居酒屋「酒食箱 来んしゃい」／中央前橋駅から徒歩圏内。全席喫煙可の大衆居酒屋。</p>
             <div class="hero-btns">
                 <a href="tel:0272261139" class="btn-hero-primary">📞 お電話でご予約</a>
                 <a href="#access" class="btn-hero-secondary">店舗情報</a>
@@ -157,7 +234,7 @@
             <div class="inner">
                 <div class="section-header">
                     <span class="section-label">CONCEPT</span>
-                    <h3 class="section-title-jp">前橋千代田町の大衆居酒屋</h3>
+                    <h2 class="section-title-jp">前橋千代田町の大衆居酒屋</h2>
                     <div class="section-divider"></div>
                 </div>
                 <div class="concept-layout">
@@ -193,7 +270,7 @@
                         </div>
                     </div>
                     <div class="concept-img-wrap">
-                        <img src="images/hero1.jpg" alt="酒食箱 来んしゃい 店内">
+                        <img src="images/hero1.jpg" alt="前橋市千代田町の居酒屋 酒食箱 来んしゃいの店内" width="800" height="600" loading="lazy" decoding="async">
                         <div class="concept-img-badge">
                             <span>18:00</span>
                             <span>〜</span>
@@ -209,7 +286,7 @@
             <div class="inner">
                 <div class="section-header">
                     <span class="section-label">CUISINE</span>
-                    <h3 class="section-title-jp">うまいもんは、夜中でもうまい。</h3>
+                    <h2 class="section-title-jp">うまいもんは、夜中でもうまい。</h2>
                     <div class="section-divider"></div>
                     <p class="section-sub">朝6時まで、同じクオリティで作り続けます。</p>
                 </div>
@@ -217,33 +294,33 @@
                 <div class="dish-list">
                     <div class="dish-card">
                         <div class="dish-img">
-                            <img src="images/hero4.jpg" alt="名古屋発祥台湾まぜそば">
+                            <img src="images/hero4.jpg" alt="前橋の居酒屋 来んしゃいの名古屋発祥台湾まぜそば" width="800" height="600" loading="lazy" decoding="async">
                             <span class="dish-tag">名物</span>
                         </div>
                         <div class="dish-info">
-                            <h4>一口食べたら、お酒が進む</h4>
+                            <h3>一口食べたら、お酒が進む</h3>
                             <p>上州和牛の炙りとろろユッケや名古屋発祥台湾まぜそばなど、「これ頼んで正解！」と言わせる自慢の一品です。</p>
                         </div>
                     </div>
 
                     <div class="dish-card dish-card-reverse">
                         <div class="dish-img">
-                            <img src="images/hero2.jpg" alt="店主厳選の焼き物">
+                            <img src="images/hero2.jpg" alt="前橋の居酒屋 来んしゃいの焼き鳥・串焼き" width="800" height="600" loading="lazy" decoding="async">
                             <span class="dish-tag">職人技</span>
                         </div>
                         <div class="dish-info">
-                            <h4>外カリッ、中はジューシーな焼き物</h4>
+                            <h3>外カリッ、中はジューシーな焼き物</h3>
                             <p>焼き鳥や串焼きは、火加減にこだわって仕上げています。肉汁たっぷり、ビールにも日本酒にもバッチリ合います。</p>
                         </div>
                     </div>
 
                     <div class="dish-card">
                         <div class="dish-img">
-                            <img src="images/hero5.jpg" alt="お酒に合わせた手作り即肴">
+                            <img src="images/hero5.jpg" alt="日本酒やハイボールに合う自家製の即肴" width="800" height="600" loading="lazy" decoding="async">
                             <span class="dish-tag">自家製</span>
                         </div>
                         <div class="dish-info">
-                            <h4>サッと出てくるのに、ちゃんとうまい即肴</h4>
+                            <h3>サッと出てくるのに、ちゃんとうまい即肴</h3>
                             <p>スピードメニューでも手は抜きません。自家製の調味料で仕上げた即肴は、日本酒やハイボールとの相性バツグン。</p>
                         </div>
                     </div>
@@ -256,12 +333,28 @@
             <div class="inner">
                 <div class="section-header">
                     <span class="section-label">MENU</span>
-                    <h3 class="section-title-jp">本日のおすすめ</h3>
+                    <h2 class="section-title-jp">本日のおすすめ</h2>
                     <div class="section-divider"></div>
                 </div>
                 <div class="menu-grid" id="top-menu-container">
                     <div class="menu-loading">お品書きを読み込み中...</div>
                 </div>
+
+                <div class="menu-static-text">
+                    <p>
+                        前橋・来んしゃいのお品書きは、<strong>焼き鳥・串焼き</strong>、<strong>野菜巻き串</strong>、<strong>揚げもの</strong>、<strong>一品料理</strong>、<strong>〆のごはんもの</strong>を中心に構成しています。
+                        名物は<strong>上州和牛の炙りとろろユッケ</strong>と<strong>名古屋発祥の台湾まぜそば</strong>。
+                        つくね・ねぎま・豚バラ・砂肝といった定番の串焼きから、自家製調味料で仕上げた即肴まで、
+                        深夜でも同じクオリティでお出ししています。
+                    </p>
+                    <p>
+                        お酒は<strong>群馬の地酒をはじめとする日本酒</strong>、焼酎、ハイボール、レモンサワー、生ビールをご用意。
+                        ご予算の目安はお一人あたり2,000円〜4,000円程度です。
+                        価格・内容は仕入れにより変動しますので、最新のお品書きは
+                        <a href="menu.html">お品書きページ</a>をご覧ください。
+                    </p>
+                </div>
+
                 <div class="btn-center">
                     <a href="menu.html" class="btn-outline">前橋・来んしゃいの全メニューを見る</a>
                 </div>
@@ -273,20 +366,20 @@
             <div class="inner">
                 <div class="section-header">
                     <span class="section-label">PAIRING</span>
-                    <h3 class="section-title-jp">前橋で一服。煙草と酒のペアリング帖</h3>
+                    <h2 class="section-title-jp">前橋で一服。煙草と酒のペアリング帖</h2>
                     <div class="section-divider"></div>
                     <p class="section-sub">愛煙家のみなさまへ。「来んしゃい」は全席喫煙可。<br>店主おすすめの組み合わせをご紹介します。</p>
                 </div>
                 <div class="pairing-grid">
                     <div class="pairing-card">
                         <div class="pairing-icon">🚬</div>
-                        <h5>紙タバコ（レギュラー・重め）</h5>
+                        <h3>紙タバコ（レギュラー・重め）</h3>
                         <div class="pairing-match">濃いめのハイボール × 自慢の煮込み</div>
                         <p>ガツンとくる煙のコクには、ウイスキーの強炭酸と、じっくり煮込んだ肉の脂が最高にマッチします。</p>
                     </div>
                     <div class="pairing-card">
                         <div class="pairing-icon">💨</div>
-                        <h5>メンソール・加熱式タバコ</h5>
+                        <h3>メンソール・加熱式タバコ</h3>
                         <div class="pairing-match">レモンサワー × 手作りつくね（タレ）</div>
                         <p>爽やかな風味のタバコには、キリッとした柑橘の酸味と、甘辛いタレの香ばしさが口の中で綺麗に響き合います。</p>
                     </div>
@@ -299,7 +392,7 @@
             <div class="inner">
                 <div class="section-header">
                     <span class="section-label">GACHA</span>
-                    <h3 class="section-title-jp">前橋の2軒目迷子へ捧ぐガチャ</h3>
+                    <h2 class="section-title-jp">前橋の2軒目迷子へ捧ぐガチャ</h2>
                     <div class="section-divider"></div>
                     <p class="section-sub">「前橋でもう一軒行きたいけれど、何を頼もう…」<br>そんな時は、来んしゃいガチャにおまかせ！</p>
                 </div>
@@ -308,9 +401,84 @@
                 </div>
                 <div id="gacha-result" class="gacha-result-box" style="display:none;">
                     <p class="gacha-label">🎯 本日のおすすめセット</p>
-                    <h4 id="gacha-set-name">メニュー名</h4>
+                    <h3 id="gacha-set-name">メニュー名</h3>
                     <p id="gacha-set-desc">説明文</p>
                     <span class="gacha-tip">※画面をそのまま店主に見せて注文してみてね！</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 利用シーン（SEO：ロングテール） -->
+        <section id="scene" class="section-scene">
+            <div class="inner">
+                <div class="section-header">
+                    <span class="section-label">SCENE</span>
+                    <h2 class="section-title-jp">前橋で飲むなら、こんなときに</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-sub">仕事帰りの一杯から、朝までのはしご酒まで。</p>
+                </div>
+
+                <div class="scene-grid">
+                    <article class="scene-card">
+                        <h3>前橋で深夜・朝まで飲みたいとき</h3>
+                        <p>
+                            前橋市内は22時、23時で閉まるお店が多く、終電を逃したあとに行き場を失いがちです。
+                            来んしゃいは18時から<strong>翌朝6時まで</strong>営業しているので、
+                            終電後でも、始発待ちの時間でも、腰を落ち着けて飲めます。
+                            JR前橋駅の始発時刻までのカウントダウンをサイト内に表示しているので、
+                            <a href="#access">アクセス欄</a>で残り時間を確認しながらお過ごしください。
+                        </p>
+                    </article>
+
+                    <article class="scene-card">
+                        <h3>タバコを吸いながら飲みたいとき</h3>
+                        <p>
+                            改正健康増進法の施行以降、群馬県内でも店内で喫煙できる飲食店は年々減っています。
+                            来んしゃいは<strong>全席喫煙可</strong>。紙巻きタバコも加熱式タバコもそのまま吸えます。
+                            愛煙家の方に向けて、<a href="#pairing">煙草とお酒のペアリング</a>もご提案しています。
+                            ※20歳未満の方はご入店いただけません。
+                        </p>
+                    </article>
+
+                    <article class="scene-card">
+                        <h3>前橋の2軒目・3軒目を探しているとき</h3>
+                        <p>
+                            千代田町の飲み屋街にあるので、1軒目のあとにふらっと立ち寄れます。
+                            「何を頼めばいいか分からない」というときは
+                            <a href="#gacha">おつまみガチャ</a>で店主おすすめのセットを引いてみてください。
+                            軽くつまめる即肴が多いので、お腹がふくれたあとの2軒目でも入りやすい構成です。
+                        </p>
+                    </article>
+
+                    <article class="scene-card">
+                        <h3>宴会・歓送迎会・忘年会で使いたいとき</h3>
+                        <p>
+                            団体でのご利用も承っています。人数とご予算をお電話でお伝えいただければ、
+                            コース内容をご相談のうえご用意します。
+                            詳しくは<a href="party.html">宴会・コースのご案内</a>をご覧ください。
+                            お席の確保が必要になりますので、事前のお電話をおすすめしています。
+                        </p>
+                    </article>
+
+                    <article class="scene-card">
+                        <h3>中央前橋駅・前橋駅から歩いて行きたいとき</h3>
+                        <p>
+                            上毛電鉄の中央前橋駅から徒歩圏内、JR両毛線の前橋駅からは車で約5分です。
+                            周辺には駐車場もありますが、お酒を飲まれる場合は公共交通機関か
+                            タクシーでのご来店をお願いしています。
+                            道順の詳細は<a href="access.html">アクセス・駐車場のご案内</a>にまとめました。
+                        </p>
+                    </article>
+
+                    <article class="scene-card">
+                        <h3>はじめてで少し不安なとき</h3>
+                        <p>
+                            おひとり様でも、常連さんでなくても大丈夫です。
+                            予算の目安、支払い方法、席の様子、お子様連れの可否などは
+                            <a href="faq.html">よくあるご質問</a>にまとめてありますので、
+                            ご来店前に目を通していただけると安心かと思います。
+                        </p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -320,7 +488,7 @@
             <div class="inner">
                 <div class="section-header">
                     <span class="section-label">RECRUIT</span>
-                    <h3 class="section-title-jp">スタッフ募集</h3>
+                    <h2 class="section-title-jp">スタッフ募集</h2>
                     <div class="section-divider"></div>
                     <p class="section-sub">一緒に働きませんか？？</p>
                 </div>
@@ -373,13 +541,13 @@
             <div class="inner">
                 <div class="section-header">
                     <span class="section-label">ACCESS</span>
-                    <h3 class="section-title-jp">店舗情報・アクセス</h3>
+                    <h2 class="section-title-jp">店舗情報・アクセス</h2>
                     <div class="section-divider"></div>
                 </div>
 
                 <div class="access-layout">
                     <div class="access-info">
-                        <h4 class="access-shop-name">酒食箱 来んしゃい</h4>
+                        <h3 class="access-shop-name">酒食箱 来んしゃい</h3>
                         <table class="access-table">
                             <tr>
                                 <th>お問い合わせ</th>
@@ -415,7 +583,7 @@
                     </div>
 
                     <div class="access-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3211.7591501754478!2d139.07007611201226!3d36.39082417225157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601ef3324a4ccd17%3A0xa8df9fa46574653!2z5p2l44KT44GX44KD44GE!5e0!3m2!1sja!2sjp!4v1779372290056!5m2!1sja!2sjp"
+                        <iframe title="酒食箱 来んしゃい（群馬県前橋市千代田町5丁目6-8）の地図" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3211.7591501754478!2d139.07007611201226!3d36.39082417225157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601ef3324a4ccd17%3A0xa8df9fa46574653!2z5p2l44KT44GX44KD44GE!5e0!3m2!1sja!2sjp!4v1779372290056!5m2!1sja!2sjp"
                             width="100%"
                             height="100%"
                             style="border:0;"
@@ -434,14 +602,21 @@
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-logo">
-                <img src="images/kinsyai-logo.jpg" alt="酒食箱 来んしゃい" style="max-height:40px;">
+                <img src="images/kinsyai-logo.jpg" alt="酒食箱 来んしゃい" width="120" height="40" loading="lazy" style="max-height:40px;">
             </div>
-            <nav class="footer-nav">
-                <a href="#concept">こだわり</a>
-                <a href="#dish">料理</a>
-                <a href="#menu">お品書き</a>
-                <a href="#access">アクセス</a>
+            <nav class="footer-nav" aria-label="フッターメニュー">
+                <a href="index.html">トップ</a>
+                <a href="menu.html">お品書き</a>
+                <a href="party.html">宴会・コース</a>
+                <a href="faq.html">よくある質問</a>
+                <a href="access.html">アクセス</a>
+                <a href="index.html#recruit">スタッフ募集</a>
+                <a href="https://www.instagram.com/kin2261139" target="_blank" rel="noopener">Instagram</a>
             </nav>
+            <p class="footer-address">
+                酒食箱 来んしゃい／〒371-0022 群馬県前橋市千代田町5丁目6-8／
+                <a href="tel:0272261139">027-226-1139</a>／営業時間 18:00〜翌6:00（日曜・祝日定休）／全席喫煙可
+            </p>
             <p class="footer-copy">© 2026 酒食箱 来んしゃい（群馬県前橋市千代田町）. All Rights Reserved.</p>
         </div>
     </footer>
@@ -539,10 +714,10 @@
                     card.className = 'menu-card';
                     card.innerHTML = `
                         <div class="menu-card-img">
-                            <img src="${item.image.url}" alt="前橋 来んしゃい おすすめメニュー：${item.name}">
+                            <img src="${item.image.url}" alt="前橋の居酒屋 来んしゃいのおすすめメニュー：${item.name}" loading="lazy" decoding="async">
                         </div>
                         <div class="menu-card-body">
-                            <h4>${item.name}</h4>
+                            <h3>${item.name}</h3>
                             <p class="menu-card-price">${item.price}</p>
                         </div>
                     `;

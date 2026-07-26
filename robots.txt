@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maebashi1.github.io/kinsyai-maebashi/sitemap.xml
