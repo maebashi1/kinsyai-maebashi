@@ -207,6 +207,11 @@ body {
     opacity: 1;
 }
 
+/* 縦長写真は上寄せで表示（看板まわりを見せる） */
+.hero-slide-top {
+    background-position: center 15%;
+}
+
 .hero-overlay {
     position: absolute;
     inset: 0;
