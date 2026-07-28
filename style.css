@@ -393,6 +393,11 @@ body {
     align-items: center;
 }
 
+/* グリッド列が画像の実寸に引っ張られて横に溢れるのを防ぐ */
+.concept-layout > * {
+    min-width: 0;
+}
+
 .concept-lead {
     font-size: 22px;
     color: var(--color-gold);
@@ -452,6 +457,8 @@ body {
 
 .concept-img-wrap img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
     aspect-ratio: 4/5;
     object-fit: cover;
     display: block;
