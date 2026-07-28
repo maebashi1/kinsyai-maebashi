@@ -256,6 +256,32 @@ body {
     display: none;
 }
 
+/* ==========================================
+   日本語の折り返し制御
+   auto-phrase: 文節の切れ目で折り返す
+   balance/pretty: 行末に1〜2文字だけ残るのを防ぐ
+   ========================================== */
+h1, h2, h3, h4,
+.hero-title,
+.concept-lead,
+.recruit-closed-title,
+.faq-q,
+.dish-info h3,
+.feature-item strong {
+    word-break: auto-phrase;
+    text-wrap: balance;
+}
+
+p,
+.hero-desc,
+.section-sub,
+.concept-body,
+.faq-a,
+.recruit-closed-text {
+    word-break: auto-phrase;
+    text-wrap: pretty;
+}
+
 .hero-desc {
     font-size: 14px;
     color: rgba(255,255,255,0.8);
